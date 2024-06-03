@@ -88,6 +88,12 @@ const LoginForm: React.FC = () => {
 					>
 						Register
 					</Link>
+					<Link
+						to={'/forgot-password'}
+						className='w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-green-600 transition'
+					>
+						Забыл пароль
+					</Link>
 				</div>
 			)}
 		</div>
