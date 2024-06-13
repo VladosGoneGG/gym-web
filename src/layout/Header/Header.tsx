@@ -8,6 +8,8 @@ const Header = () => {
 					<Link to={'/'}>Главная</Link>
 					<li>About Us</li>
 					<Link to={'/login'}>Войти в аккаунт</Link>
+					<Link to={'/profile'}>Профиль</Link>
+					<Link to={'/admin/users'}>АДМИН панель</Link>
 				</ul>
 			</nav>
 		</div>

@@ -1,5 +1,10 @@
 export interface IUser {
 	email: string
+	_id: string
 	isActivated: boolean
-	id: string
+	firstName: string
+	lastName: string
+	subscriptionStatus: string
+	subscriptionExpiry: Date
+	role: string
 }

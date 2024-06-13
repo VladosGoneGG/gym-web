@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth, login, logout } from '../../features/authSlice/authSlice'
-import { IUser } from '../../models/IUser'
-import UserService from '../../services/UserService'
 
 const LoginForm: React.FC = () => {
 	const dispatch: AppDispatch = useDispatch()
@@ -14,16 +12,6 @@ const LoginForm: React.FC = () => {
 
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
-	const [users, setUsers] = useState<IUser[]>([])
-
-	async function getUsers() {
-		try {
-			const response = await UserService.fetchUsers()
-			setUsers(response.data)
-		} catch (e) {
-			console.log(e)
-		}
-	}
 
 	useEffect(() => {
 		dispatch(checkAuth())
@@ -49,12 +37,6 @@ const LoginForm: React.FC = () => {
 						<h3>{user?.email} Пользователь в сети</h3>
 						Logout
 					</button>
-					<div>
-						<button onClick={getUsers}>Получить пользователей</button>
-						{users.map(user => (
-							<div key={user.email}>{user.email}</div>
-						))}
-					</div>
 				</div>
 			) : (
 				<div className='bg-white p-6 rounded shadow-md w-full max-w-xs'>
