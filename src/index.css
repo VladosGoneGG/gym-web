@@ -9,3 +9,23 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+.custom-list {
+	list-style: none;
+	padding: 0;
+	color: white;
+}
+
+.custom-list li {
+	position: relative;
+	padding-left: 1em; /* Adjust this value as needed */
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.custom-list li::before {
+	content: '•'; /* This is the bullet point */
+	position: absolute;
+	left: 0;
+	color: #ff921b; /* This is the yellow color for the bullet points */
+}

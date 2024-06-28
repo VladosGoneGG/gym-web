@@ -17,15 +17,14 @@ const Header = () => {
 			<Link to={'/'} className='ml-16'>
 				<Logo />
 			</Link>
-			<nav className='w-[800px] ml-14 mr-14 text-white'>
-				<ul className='flex flex-row justify-between items-center'>
+			<nav className='w-[800px] ml-14 mr-14 text-white text-[16px] md:text-[20px]'>
+				<ul className='flex flex-row justify-evenly items-center'>
 					<Link to={'/'}>Главная</Link>
-					<Link to={'/'}>Услуги</Link>
-					<Link to={'/'}>О Нас</Link>
-					<Link to={'/'}>Контакты</Link>
-
+					<Link to={'/contacts'}>Контакты</Link>
 					{isAuth && <Link to={'/profile'}>Профиль</Link>}
-
+					{isAuth && user?.role === 'admin' && (
+						<Link to={'/admin/users'}>Админ</Link>
+					)}
 					<Link to={'/login'}>
 						{isAuth ? (
 							<span
@@ -40,10 +39,6 @@ const Header = () => {
 							</span>
 						)}
 					</Link>
-
-					{isAuth && user?.role === 'admin' && (
-						<Link to={'/admin/users'}>АДМИН панель</Link>
-					)}
 				</ul>
 			</nav>
 		</div>

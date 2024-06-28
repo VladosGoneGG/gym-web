@@ -78,88 +78,87 @@ const UserProfileLink: React.FC = () => {
 	if (error) return <p>{error}</p>
 
 	return (
-		<div className='container mx-auto p-4'>
+		<div className='flex-1 bg-fon-img p-4 text-[16px] md:text-[24px]'>
 			{user ? (
-				<div className='max-w-md mx-auto bg-white p-6 rounded-md shadow-md'>
-					<h1 className='text-2xl font-semibold mb-4'>
-						{user.firstName} {user.lastName}
-					</h1>
-					<p>Email: {user.email}</p>
-					<p>Subscription Status: {user.subscriptionStatus}</p>
-					<p>
-						Subscription Expiry:{' '}
-						{new Date(user.subscriptionExpiry).toLocaleDateString()}
-					</p>
-					<input
-						type='text'
-						name='firstName'
-						value={formData.firstName || ''}
-						onChange={handleInputChange}
-						className='w-full p-2 border border-gray-300 rounded mt-2'
-					/>
-					<input
-						type='text'
-						name='lastName'
-						value={formData.lastName || ''}
-						onChange={handleInputChange}
-						className='w-full p-2 border border-gray-300 rounded mt-2'
-					/>
-					<input
-						type='email'
-						name='email'
-						value={formData.email || ''}
-						onChange={handleInputChange}
-						className='w-full p-2 border border-gray-300 rounded mt-2'
-					/>
-					<div className='mt-4'>
-						<label className='inline-flex items-center'>
-							<input
-								type='checkbox'
-								name='isActivated'
-								checked={formData.isActivated || false}
-								onChange={handleInputChange}
-								className='form-checkbox'
-							/>
-							<span className='ml-2'>Активна</span>
-						</label>
-					</div>
-					<div className='mt-4'>
-						<label>Subscription Status</label>
-						<select
-							name='subscriptionStatus'
-							value={formData.subscriptionStatus || ''}
-							onChange={handleInputChange}
-							className='w-full p-2 border border-gray-300 rounded mt-2'
-						>
-							<option value='active'>Активна</option>
-							<option value='inactive'>Неактивна</option>
-						</select>
-					</div>
-					<div className='mt-4'>
-						<label>Subscription Expiry</label>
+				<div className='flex justify-center'>
+					<div className='flex flex-col  w-[50%] text-white justify-center p-6'>
+						<h3 className='text-orange-400 mb-4'>
+							{user.firstName} {user.lastName}
+						</h3>
+						<p className='text-orange-400'>
+							Email: <span className='text-white'>{user.email}</span>
+						</p>
+						<p className='text-orange-400'>
+							Статус подписки:{' '}
+							<span className='text-white'>{user.subscriptionStatus}</span>
+						</p>
+						<p className='text-orange-400'>
+							Окончание подписки:
+							<span className='text-white'>
+								{' '}
+								{new Date(user.subscriptionExpiry).toLocaleDateString()}
+							</span>
+						</p>
 						<input
-							type='date'
-							name='subscriptionExpiry'
-							value={
-								formData.subscriptionExpiry
-									? new Date(formData.subscriptionExpiry)
-											.toISOString()
-											.split('T')[0]
-									: ''
-							}
-							onChange={handleDateChange}
-							className='w-full p-2 border border-gray-300 rounded mt-2'
+							type='text'
+							name='firstName'
+							value={formData.firstName || ''}
+							onChange={handleInputChange}
+							className='w-full p-2 border text-black border-gray-300 rounded mt-2'
 						/>
+						<input
+							type='text'
+							name='lastName'
+							value={formData.lastName || ''}
+							onChange={handleInputChange}
+							className='w-full p-2 border text-black border-gray-300 rounded mt-2'
+						/>
+						<input
+							type='email'
+							name='email'
+							value={formData.email || ''}
+							onChange={handleInputChange}
+							className='w-full p-2 border text-black border-gray-300 rounded mt-2'
+						/>
+
+						<div className='mt-4'>
+							<label className='text-orange-400'>Статус подписки:</label>
+							<select
+								name='subscriptionStatus'
+								value={formData.subscriptionStatus || ''}
+								onChange={handleInputChange}
+								className='w-full p-2 border text-black border-gray-300 rounded mt-2'
+							>
+								<option value='active'>Активна</option>
+								<option value='inactive'>Неактивна</option>
+							</select>
+						</div>
+						<div className='mt-4'>
+							<label className='text-orange-400'>Подписка активна до:</label>
+							<input
+								type='date'
+								name='subscriptionExpiry'
+								value={
+									formData.subscriptionExpiry
+										? new Date(formData.subscriptionExpiry)
+												.toISOString()
+												.split('T')[0]
+										: ''
+								}
+								onChange={handleDateChange}
+								className='w-full p-2 border text-black border-gray-300 rounded mt-2'
+							/>
+						</div>
+						<button
+							onClick={handleUpdateProfile}
+							className='w-full bg-orange-500 hover:bg-orange-500/50 text-white  p-2 rounded mt-4'
+						>
+							Обновить профиль
+						</button>
 					</div>
-					<button
-						onClick={handleUpdateProfile}
-						className='w-full bg-blue-500 text-white p-2 rounded mt-4'
-					>
-						Обновить профиль
-					</button>
 				</div>
 			) : (
-				<p>Пользователь не найден</p>
+				<p className='text-red-600'>Пользователь не найден</p>
 			)}
 		</div>
 	)
