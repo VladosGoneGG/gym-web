@@ -33,7 +33,7 @@ const AdminPanel: React.FC = () => {
 	if (error) return <p>{error}</p>
 
 	return (
-		<div className='flex-1 p-3 text-white bg-fon-img text-[16px] sm:text-[20px]'>
+		<div className='flex-1 p-3 text-white bg-neutral-950 text-[16px] sm:text-[20px]'>
 			<h3 className='text-orange-400'>Панель Администратора</h3>
 			<input
 				type='text'

@@ -7,7 +7,7 @@ import SectionTwo from './components/SectionTwo/SectionTwo'
 const App: React.FC = () => {
 	return (
 		<div className='flex-grow'>
-			<div className='bg-hero-main bg-cover md:bg-contain bg-center bg-no-repeat h-[1024px] sm:h-[768px] md:h-[1024px] '>
+			<div className='bg-hero-main bg-cover md:bg-contain bg-center bg-no-repeat h-[450px] sm:h-[768px] md:h-[1024px] '>
 				<EntryBanner />
 			</div>
 			<section className=' bg-hero-rev bg-cover md:bg-contain bg-center bg-no-repeat  sm:h-auto md:h-[800px]  '>
@@ -16,7 +16,7 @@ const App: React.FC = () => {
 			<section>
 				<SectionTwo />
 			</section>
-			<section className='bg-fon-img bg-cover bg-no-repeat pb-14'>
+			<section className='bg-neutral-950 pb-14'>
 				<SectionThree />
 			</section>
 		</div>

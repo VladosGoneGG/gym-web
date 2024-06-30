@@ -29,7 +29,7 @@ const LoginForm: React.FC = () => {
 	}
 
 	return (
-		<div className='flex justify-center flex-1 flex-col bg-fon-img p-4'>
+		<div className='flex justify-center flex-1 flex-col bg-neutral-950 p-4'>
 			<div className='flex justify-center items-center'>
 				{loading && <p className='text-blue-500'>Loading...</p>}
 				{!isAuth && (

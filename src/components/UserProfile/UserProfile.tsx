@@ -31,7 +31,7 @@ const UserProfile: React.FC = () => {
 	}
 
 	return (
-		<div className='flex-1 bg-fon-img p-6 text-white'>
+		<div className='flex-1 bg-neutral-950 p-6 text-white'>
 			<div className='flex flex-col gap-10 items-center'>
 				{user?.role === 'admin' && (
 					<h3 className='text-3xl font-bold mb-6'>

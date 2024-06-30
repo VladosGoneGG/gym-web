@@ -8,7 +8,7 @@ import SvgYogaIco from '../SvgYogaIco/SvgYogaIco'
 const PlanGroup = () => {
 	return (
 		<div className='flex items-center w-[1100px]'>
-			<ul className='p-3 grid  grid-rows-1 grid-cols-1 sm:grid-cols-3 font-custom text-[10px] text-white/50 justify-center items-center text-center'>
+			<ul className='p-3 grid  grid-rows-1 grid-cols-2 sm:grid-cols-3 font-custom text-[10px] text-white/50 justify-center items-center text-center'>
 				<li className='flex flex-col items-center justify-evenly h-52 sm:border-r-2 border-orange-400'>
 					<SvgProgressIco />
 					<p className='text-[16px] text-white'>Потеря веса</p>

@@ -23,17 +23,14 @@ const Registration: React.FC = () => {
 	const password = watch('password')
 
 	return (
-		<div className='flex items-center justify-center min-h-screen bg-black'>
-			<form
-				onSubmit={handleSubmit(onSubmit)}
-				className='bg-yellow-500 p-8 rounded-lg shadow-lg max-w-md w-full'
-			>
-				<h2 className='text-2xl font-bold mb-6 text-center text-black'>
+		<div className='flex items-center justify-center flex-1 bg-neutral-950 text-white'>
+			<form onSubmit={handleSubmit(onSubmit)} className=' w-[500px] p-8'>
+				<h2 className='text-2xl font-bold mb-6 text-center text-yellow-500'>
 					Регистрация
 				</h2>
 
 				<div className='mb-4'>
-					<label className='block text-black font-bold mb-2'>Имя:</label>
+					<label className='block font-bold mb-2 text-yellow-500'>Имя:</label>
 					<input
 						className='w-full p-2 border border-black rounded'
 						{...register('firstName', {
@@ -50,7 +47,9 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block text-black font-bold mb-2'>Фамилия:</label>
+					<label className='block  font-bold mb-2 text-yellow-500'>
+						Фамилия:
+					</label>
 					<input
 						className='w-full p-2 border border-black rounded'
 						{...register('lastName', {
@@ -67,7 +66,9 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block text-black font-bold mb-2'>Email:</label>
+					<label className='block  font-bold mb-2 text-yellow-500'>
+						Email:
+					</label>
 					<input
 						className='w-full p-2 border border-black rounded'
 						{...register('email', {
@@ -84,7 +85,9 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block text-black font-bold mb-2'>Пароль:</label>
+					<label className='block  font-bold mb-2 text-yellow-500'>
+						Пароль:
+					</label>
 					<input
 						type='password'
 						className='w-full p-2 border border-black rounded'
@@ -102,7 +105,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block text-black font-bold mb-2'>
+					<label className='block  font-bold mb-2 text-yellow-500'>
 						Повторите пароль:
 					</label>
 					<input
@@ -121,7 +124,7 @@ const Registration: React.FC = () => {
 
 				<button
 					type='submit'
-					className='w-full bg-black text-white p-2 rounded hover:bg-green-600 transition'
+					className='w-full bg-gray-800 text-white py-2 px-4 rounded'
 				>
 					Зарегистрироваться
 				</button>

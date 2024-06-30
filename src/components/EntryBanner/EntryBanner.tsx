@@ -3,8 +3,10 @@ import SvgPlayIco from '../SvgPlayIco/SvgPlayIco'
 
 const EntryBanner = () => {
 	return (
-		<div className='flex flex-col justify-evenly w-[530px] h-[410px] ml-4 p-5 text-white bg-gradient-to-t from-black/25 to-white/5 backdrop-blur-md'>
-			<h1 className='font-bold md:text-6xl'>Трансформируй своё тело</h1>
+		<div className='flex flex-col justify-evenly w-auto sm:w-[530px] h-[410px] sm:ml-4 p-5 text-white bg-gradient-to-t from-black/25 to-white/5 backdrop-blur-md'>
+			<h1 className='font-bold text-[18px] md:text-6xl'>
+				Трансформируй своё тело
+			</h1>
 			<p className='text-white/50'>
 				Мы стремимся помочь вам преобразовать ваше тело и разум посредством
 				фитнеса.

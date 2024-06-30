@@ -4,23 +4,26 @@ import SvgCopyRight from '../../components/SvgCopyRight/SvgCopyRight'
 const Footer = () => {
 	return (
 		<div className='min-h-40 bg-black'>
-			<div className='text-white flex justify-between items-center p-10'>
-				<ul className='flex items-center gap-6'>
+			<div className='text-white flex justify-between items-end sm:items-center p-5 sm:p-10'>
+				<ul className='flex flex-col sm:flex-row items-center gap-6'>
 					<li>
 						<Logo />
 					</li>
 
-					<li className='text-[20px] font-bold'>
+					<li className='text-[14px] sm:text-[20px] font-bold'>
 						Помогаем достижению <br /> ваших фитнес целей!
 					</li>
 				</ul>
-				<div className='hidden md:block'></div>
-				<ul className='flex justify-center items-center gap-1 md:absolute md:left-1/2 md:transform md:-translate-x-1/2'>
+				<ul className='flex justify-center items-center pt-4 gap-1 '>
 					<li>
 						<SvgCopyRight />
 					</li>
-					<li className='text-[20px] font-bold'>2024 All Rights Reserved</li>
+					<li className='text-[14px] sm:text-[20px] font-bold'>
+						2024 All Rights Reserved
+					</li>
 				</ul>
+				<div className='block'></div>
+				<div className='block'></div>
 			</div>
 		</div>
 	)

@@ -7,7 +7,7 @@ module.exports = {
 				'hero-main': "url('/main.png')",
 				'hero-rev': "url('/mainRev.png')",
 				'price-list': "url('/pricelist.png')",
-				'fon-img': "url('/fonimg.webp')",
+				'fon-img': "url('/horRow.svg')",
 			},
 			backgroundSize: {
 				auto: 'auto',

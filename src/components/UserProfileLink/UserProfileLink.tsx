@@ -78,10 +78,10 @@ const UserProfileLink: React.FC = () => {
 	if (error) return <p>{error}</p>
 
 	return (
-		<div className='flex-1 bg-fon-img p-4 text-[16px] md:text-[24px]'>
+		<div className='flex-1 bg-neutral-950 p-4 text-[16px] md:text-[24px]'>
 			{user ? (
-				<div className='flex justify-center'>
-					<div className='flex flex-col  w-[50%] text-white justify-center p-6'>
+				<div className='flex justify-start sm:justify-center'>
+					<div className='flex flex-col w-auto sm:w-[50%] text-white justify-start sm:justify-center p-6'>
 						<h3 className='text-orange-400 mb-4'>
 							{user.firstName} {user.lastName}
 						</h3>

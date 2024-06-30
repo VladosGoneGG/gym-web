@@ -27,15 +27,14 @@ const ForgotPassword = () => {
 	const watchEmail = watch('email')
 
 	return (
-		<div className='flex justify-center items-center min-h-screen bg-gray-100'>
-			<form
-				onSubmit={handleSubmit(onSubmit)}
-				className='bg-white p-6 rounded shadow-md w-full max-w-md'
-			>
-				<h2 className='text-2xl font-bold mb-4'>Восстановление пароля</h2>
+		<div className='flex flex-1 justify-center items-center bg-neutral-950'>
+			<form onSubmit={handleSubmit(onSubmit)} className=' p-6 '>
+				<h2 className='text-2xl font-bold mb-4 text-yellow-500'>
+					Восстановление пароля
+				</h2>
 
 				<div className='mb-4'>
-					<label htmlFor='email' className='block text-gray-700'>
+					<label htmlFor='email' className='block text-yellow-500'>
 						Email:
 					</label>
 					<input
@@ -53,7 +52,7 @@ const ForgotPassword = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label htmlFor='confirmEmail' className='block text-gray-700'>
+					<label htmlFor='confirmEmail' className='block text-yellow-500'>
 						Повторите Email:
 					</label>
 					<input
@@ -74,7 +73,7 @@ const ForgotPassword = () => {
 
 				<button
 					type='submit'
-					className='w-full bg-yellow-500 text-black p-2 rounded mt-4 hover:bg-yellow-600 transition-colors'
+					className='w-full bg-gray-800/25 text-white py-2 px-4 rounded '
 				>
 					Отправить
 				</button>
