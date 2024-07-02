@@ -1,4 +1,4 @@
-import { FaInstagram, FaTelegram, FaVk } from 'react-icons/fa'
+import { FaInstagram, FaTelegram, FaTiktok } from 'react-icons/fa'
 import PlanGroup from '../PlanGroup/PlanGroup'
 
 const SectionOne = () => {
@@ -12,13 +12,16 @@ const SectionOne = () => {
 						</a>
 					</li>
 					<li>
-						<a href='/' target='_blank'>
-							<FaVk size={40} color='white' />
+						<a
+							href='https://www.tiktok.com/discover/fitform-pmr'
+							target='_blank'
+						>
+							<FaTiktok size={40} color='white' />
 						</a>
 					</li>
 					<li>
 						<a href='/' target='_blank'>
-							<FaTelegram size={40} color='white' />{' '}
+							<FaTelegram size={40} color='white' />
 						</a>
 					</li>
 				</ul>

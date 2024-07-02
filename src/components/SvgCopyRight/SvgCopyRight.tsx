@@ -1,14 +1,14 @@
 const SvgCopyRight = () => {
 	return (
 		<svg
-			width='30'
-			height='30'
+			width='20'
+			height='20'
 			viewBox='0 0 30 30'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 			xmlnsXlink='http://www.w3.org/1999/xlink'
 		>
-			<rect width='30' height='30' fill='url(#pattern0_34_57)' />
+			<rect width='20' height='20' fill='url(#pattern0_34_57)' />
 			<defs>
 				<pattern
 					id='pattern0_34_57'

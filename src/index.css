@@ -29,3 +29,8 @@
 	left: 0;
 	color: #ff921b; /* This is the yellow color for the bullet points */
 }
+
+button.yarl__button.yarl__navigation_prev,
+button.yarl__button.yarl__navigation_next {
+	display: none;
+}

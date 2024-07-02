@@ -74,7 +74,6 @@ const UserProfileLink: React.FC = () => {
 		}
 	}
 
-	if (loading) return <p>Loading...</p>
 	if (error) return <p>{error}</p>
 
 	return (
@@ -153,7 +152,7 @@ const UserProfileLink: React.FC = () => {
 							onClick={handleUpdateProfile}
 							className='w-full bg-orange-500 hover:bg-orange-500/50 text-white  p-2 rounded mt-4'
 						>
-							Обновить профиль
+							{loading ? <p>Обновление...</p> : <p>Обновить профиль</p>}
 						</button>
 					</div>
 				</div>

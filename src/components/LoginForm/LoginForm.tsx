@@ -31,7 +31,6 @@ const LoginForm: React.FC = () => {
 	return (
 		<div className='flex justify-center flex-1 flex-col bg-neutral-950 p-4'>
 			<div className='flex justify-center items-center'>
-				{loading && <p className='text-blue-500'>Loading...</p>}
 				{!isAuth && (
 					<div className='p-6 rounded w-[500px]'>
 						<div className='mb-4'>
@@ -56,7 +55,7 @@ const LoginForm: React.FC = () => {
 							onClick={handleLogin}
 							className='w-full bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-300 transition mb-2'
 						>
-							Войти
+							{loading ? <p>Ожидайте...</p> : <p>Войти</p>}
 						</button>
 						<div className='flex flex-col gap-2 text-center '>
 							<Link

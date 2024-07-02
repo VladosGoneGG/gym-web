@@ -4,7 +4,7 @@ import SvgPlayIco from '../SvgPlayIco/SvgPlayIco'
 const EntryBanner = () => {
 	return (
 		<div className='flex flex-col justify-evenly w-auto sm:w-[530px] h-[410px] sm:ml-4 p-5 text-white bg-gradient-to-t from-black/25 to-white/5 backdrop-blur-md'>
-			<h1 className='font-bold text-[18px] md:text-6xl'>
+			<h1 className='font-bold text-[36px] md:text-6xl'>
 				Трансформируй своё тело
 			</h1>
 			<p className='text-white/50'>
@@ -13,7 +13,7 @@ const EntryBanner = () => {
 			</p>
 			<div className='flex flex-row gap-[18px]'>
 				<Link
-					to={'/'}
+					to={'/login'}
 					className='flex justify-center items-center w-[136px] h-[44px]  bg-orange-500'
 				>
 					Начать

@@ -2313,6 +2313,11 @@ yaml@^2.3.4:
   resolved "https://registry.npmjs.org/yaml/-/yaml-2.4.2.tgz"
   integrity sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==
 
+yet-another-react-lightbox@^3.20.2:
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/yet-another-react-lightbox/-/yet-another-react-lightbox-3.20.2.tgz#423f8867607e6f40140d474e9dc62d850ffbd3f0"
+  integrity sha512-jH7w7QSSTQG47n22MR0vYtzekkbzyY2X73dN6dkmDK20SDaTCP/TCLXI8kDdyBFvLshWUAysgYZ5rCi6Ytz10Q==
+
 yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
