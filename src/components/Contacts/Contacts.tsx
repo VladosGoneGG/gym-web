@@ -13,8 +13,8 @@ const Contacts = () => {
 							000-000-000
 						</li>
 						<li>
-							<span className='text-orange-400 font-bold'>Адресс:</span> улица
-							Дзержинского, 47
+							<span className='text-orange-400 font-bold'>Адресс:</span>{' '}
+							Дубоссары улица Дзержинского, 47
 						</li>
 						<li>
 							<ul className='flex gap-10'>

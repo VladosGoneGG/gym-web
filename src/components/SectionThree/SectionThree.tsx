@@ -22,7 +22,7 @@ const SectionThree = () => {
 				<img
 					src='/girl.png'
 					alt='girl'
-					className='w-[150px] md:w-[350px] md:h-[455px] sm:w-[200px] sm:h-[250px] relative left-10'
+					className='w-[150px] md:w-[350px] md:h-[455px] sm:w-[200px] sm:h-[250px] sm:relative sm:left-10'
 				/>
 				<img
 					src='/man.png'

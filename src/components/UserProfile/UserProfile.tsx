@@ -1,3 +1,4 @@
+import QRCode from 'qrcode.react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../app/store'
@@ -29,6 +30,8 @@ const UserProfile: React.FC = () => {
 			<div className='flex-1 text-center text-red-500'>Ошибка: {error}</div>
 		)
 	}
+
+	const profileUrl = `${window.location.origin}/profile/${profile?._id}`
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
@@ -63,8 +66,13 @@ const UserProfile: React.FC = () => {
 							<span className='font-semibold text-orange-400'>
 								Дата окончания абонемента:
 							</span>{' '}
-							{new Date(profile.subscriptionExpiry).toLocaleDateString()}
+							{profile.subscriptionExpiry
+								? new Date(profile.subscriptionExpiry).toLocaleDateString()
+								: ''}
 						</p>
+						<div className='flex justify-center mt-6'>
+							<QRCode value={profileUrl} />
+						</div>
 					</div>
 				)}
 			</div>

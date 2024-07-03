@@ -1,5 +1,6 @@
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { IFormInput } from '../../models/IFormInput'
 import AuthService from '../../services/AuthService'
 
@@ -14,23 +15,25 @@ const Registration: React.FC = () => {
 		AuthService.registration(data)
 			.then(response => {
 				console.log(response.data)
+				navigate('/')
 			})
 			.catch(error => {
 				console.error(error.response?.data)
 			})
 	}
 
+	const navigate = useNavigate()
 	const password = watch('password')
 
 	return (
-		<div className='flex items-center justify-center flex-1 bg-neutral-950 text-white'>
+		<div className='flex items-center justify-center flex-1 bg-neutral-950 text-black'>
 			<form onSubmit={handleSubmit(onSubmit)} className=' w-[500px] p-8'>
-				<h2 className='text-2xl font-bold mb-6 text-center text-yellow-500'>
+				<h2 className='text-2xl font-bold mb-6 text-center text-orange-400'>
 					Регистрация
 				</h2>
 
 				<div className='mb-4'>
-					<label className='block font-bold mb-2 text-yellow-500'>Имя:</label>
+					<label className='block font-bold mb-2 text-orange-400'>Имя:</label>
 					<input
 						className='w-full p-2 border border-black rounded'
 						{...register('firstName', {
@@ -47,7 +50,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block  font-bold mb-2 text-yellow-500'>
+					<label className='block  font-bold mb-2 text-orange-400'>
 						Фамилия:
 					</label>
 					<input
@@ -66,7 +69,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block  font-bold mb-2 text-yellow-500'>
+					<label className='block  font-bold mb-2 text-orange-400'>
 						Email:
 					</label>
 					<input
@@ -85,7 +88,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block  font-bold mb-2 text-yellow-500'>
+					<label className='block  font-bold mb-2 text-orange-400'>
 						Пароль:
 					</label>
 					<input
@@ -105,7 +108,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block  font-bold mb-2 text-yellow-500'>
+					<label className='block  font-bold mb-2 text-orange-400'>
 						Повторите пароль:
 					</label>
 					<input

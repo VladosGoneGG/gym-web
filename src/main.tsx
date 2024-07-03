@@ -5,9 +5,10 @@ import { RouterProvider } from 'react-router-dom'
 import { store } from './app/store.ts'
 import './index.css'
 import { router } from './routes/router.tsx'
+import { API_KEY_YMAP } from './utils/variables.ts'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<YMaps>
+	<YMaps query={{ apikey: API_KEY_YMAP }}>
 		<Provider store={store}>
 			<RouterProvider router={router} />
 		</Provider>

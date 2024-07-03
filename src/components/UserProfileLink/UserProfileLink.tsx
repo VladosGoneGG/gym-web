@@ -95,7 +95,9 @@ const UserProfileLink: React.FC = () => {
 							Окончание подписки:
 							<span className='text-white'>
 								{' '}
-								{new Date(user.subscriptionExpiry).toLocaleDateString()}
+								{user.subscriptionExpiry
+									? new Date(user.subscriptionExpiry).toLocaleDateString()
+									: ''}
 							</span>
 						</p>
 						<input
@@ -128,8 +130,8 @@ const UserProfileLink: React.FC = () => {
 								onChange={handleInputChange}
 								className='w-full p-2 border text-black border-gray-300 rounded mt-2'
 							>
-								<option value='active'>Активна</option>
-								<option value='inactive'>Неактивна</option>
+								<option value='Активна'>Активна</option>
+								<option value='Неактивна'>Неактивна</option>
 							</select>
 						</div>
 						<div className='mt-4'>
