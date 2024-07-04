@@ -29,12 +29,12 @@ const ForgotPassword = () => {
 	return (
 		<div className='flex flex-1 justify-center items-center bg-neutral-950'>
 			<form onSubmit={handleSubmit(onSubmit)} className=' p-6 '>
-				<h2 className='text-2xl font-bold mb-4 text-yellow-500'>
+				<h2 className='text-2xl font-bold mb-4 text-orange-400'>
 					Восстановление пароля
 				</h2>
 
 				<div className='mb-4'>
-					<label htmlFor='email' className='block text-yellow-500'>
+					<label htmlFor='email' className='block text-orange-400'>
 						Email:
 					</label>
 					<input
@@ -52,7 +52,7 @@ const ForgotPassword = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label htmlFor='confirmEmail' className='block text-yellow-500'>
+					<label htmlFor='confirmEmail' className='block text-orange-400'>
 						Повторите Email:
 					</label>
 					<input

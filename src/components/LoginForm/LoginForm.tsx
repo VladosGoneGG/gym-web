@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth, login } from '../../features/authSlice/authSlice'
+import SvgLoading from '../SvgLoading/SvgLoading'
 
 const LoginForm: React.FC = () => {
 	const dispatch: AppDispatch = useDispatch()
@@ -55,20 +56,20 @@ const LoginForm: React.FC = () => {
 							onClick={handleLogin}
 							className='w-full bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-300 transition mb-2'
 						>
-							{loading ? <p>Ожидайте...</p> : <p>Войти</p>}
+							{loading ? <SvgLoading /> : 'Войти'}
 						</button>
 						<div className='flex flex-col gap-2 text-center '>
 							<Link
 								to={'/registration'}
 								className='w-full bg-gray-800 text-white py-2 px-4 rounded '
 							>
-								Регистрация
+								{loading ? <SvgLoading /> : 'Регистрация'}
 							</Link>
 							<Link
 								to={'/forgot-password'}
 								className='w-full bg-gray-800/25 text-white py-2 px-4 rounded '
 							>
-								Забыл пароль
+								{loading ? <SvgLoading /> : 'Забыл пароль'}
 							</Link>
 						</div>
 					</div>

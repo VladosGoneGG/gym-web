@@ -7,6 +7,7 @@ import {
 	updateUserProfile,
 } from '../../features/userProfileSlice/userProfileSlice'
 import { IUser } from '../../models/IUser'
+import SvgLoading from '../SvgLoading/SvgLoading'
 
 interface UpdateUserProfileParams {
 	userId: string
@@ -154,7 +155,7 @@ const UserProfileLink: React.FC = () => {
 							onClick={handleUpdateProfile}
 							className='w-full bg-orange-500 hover:bg-orange-500/50 text-white  p-2 rounded mt-4'
 						>
-							{loading ? <p>Обновление...</p> : <p>Обновить профиль</p>}
+							{loading ? <SvgLoading /> : <p>Обновить профиль</p>}
 						</button>
 					</div>
 				</div>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { IFormInput } from '../../models/IFormInput'
 import AuthService from '../../services/AuthService'
+import SvgLoading from '../SvgLoading/SvgLoading'
 
 const Registration: React.FC = () => {
 	const {
@@ -11,19 +12,30 @@ const Registration: React.FC = () => {
 		watch,
 		formState: { errors },
 	} = useForm<IFormInput>()
+	const [loading, setLoading] = useState(false)
+	const [serverError, setServerError] = useState('')
+	const navigate = useNavigate()
+	const password = watch('password')
+
 	const onSubmit: SubmitHandler<IFormInput> = data => {
+		setLoading(true)
+		setServerError('')
 		AuthService.registration(data)
 			.then(response => {
 				console.log(response.data)
 				navigate('/')
 			})
 			.catch(error => {
-				console.error(error.response?.data)
+				if (error.response?.data?.message) {
+					setServerError(error.response.data.message)
+				} else {
+					setServerError('Произошла ошибка, попробуйте еще раз.')
+				}
+			})
+			.finally(() => {
+				setLoading(false)
 			})
 	}
-
-	const navigate = useNavigate()
-	const password = watch('password')
 
 	return (
 		<div className='flex items-center justify-center flex-1 bg-neutral-950 text-black'>
@@ -50,7 +62,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block  font-bold mb-2 text-orange-400'>
+					<label className='block font-bold mb-2 text-orange-400'>
 						Фамилия:
 					</label>
 					<input
@@ -69,9 +81,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='block  font-bold mb-2 text-orange-400'>
-						Email:
-					</label>
+					<label className='block font-bold mb-2 text-orange-400'>Email:</label>
 					<input
 						className='w-full p-2 border border-black rounded'
 						{...register('email', {
@@ -88,7 +98,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block  font-bold mb-2 text-orange-400'>
+					<label className='block font-bold mb-2 text-orange-400'>
 						Пароль:
 					</label>
 					<input
@@ -108,7 +118,7 @@ const Registration: React.FC = () => {
 				</div>
 
 				<div className='mb-6'>
-					<label className='block  font-bold mb-2 text-orange-400'>
+					<label className='block font-bold mb-2 text-orange-400'>
 						Повторите пароль:
 					</label>
 					<input
@@ -125,11 +135,14 @@ const Registration: React.FC = () => {
 					)}
 				</div>
 
+				{serverError && <p className='text-red-600 mb-4'>{serverError}</p>}
+
 				<button
 					type='submit'
 					className='w-full bg-gray-800 text-white py-2 px-4 rounded'
+					disabled={loading}
 				>
-					Зарегистрироваться
+					{loading ? <SvgLoading /> : 'Зарегистрироваться'}
 				</button>
 			</form>
 		</div>
