@@ -10,11 +10,11 @@ const Contacts = () => {
 					<ul className='flex gap-10 flex-col'>
 						<li>
 							<span className='text-orange-400 font-bold'>Телефон:</span>{' '}
-							000-000-000
+							061-025-211
 						</li>
 						<li>
 							<span className='text-orange-400 font-bold'>Адресс:</span>{' '}
-							Дубоссары улица Дзержинского, 47
+							Дубоссары, улица Дзержинского 47
 						</li>
 						<li>
 							<ul className='flex gap-10'>
@@ -35,7 +35,7 @@ const Contacts = () => {
 									</a>
 								</li>
 								<li>
-									<a href='/' target='_blank'>
+									<a href='https://t.me/gymfitform' target='_blank'>
 										<FaTelegram size={40} color='orange' />
 									</a>
 								</li>

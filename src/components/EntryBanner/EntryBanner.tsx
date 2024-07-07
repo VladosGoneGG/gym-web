@@ -19,7 +19,8 @@ const EntryBanner = () => {
 					Начать
 				</Link>
 				<Link
-					to={'/'}
+					to={'https://www.tiktok.com/discover/fitform-pmr'}
+					target='_blank'
 					className='flex flex-row justify-center items-center w-[174px] h-[44px] gap-3 border-solid border-2 border-orange-500'
 				>
 					{' '}

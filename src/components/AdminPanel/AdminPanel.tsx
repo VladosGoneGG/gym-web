@@ -48,7 +48,9 @@ const AdminPanel: React.FC = () => {
 						<li
 							key={user._id}
 							onClick={() => handleUserClick(user._id)}
-							className='cursor-pointer hover:bg-gray-700 p-2'
+							className={`cursor-pointer hover:bg-gray-700 p-2 ${
+								user.subscriptionStatus === 'Неактивна' ? 'text-red-500' : ''
+							}`}
 						>
 							{user.firstName} {user.lastName} ({user.email})
 						</li>

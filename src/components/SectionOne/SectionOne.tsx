@@ -20,7 +20,7 @@ const SectionOne = () => {
 						</a>
 					</li>
 					<li>
-						<a href='/' target='_blank'>
+						<a href='https://t.me/gymfitform' target='_blank'>
 							<FaTelegram size={40} color='white' />
 						</a>
 					</li>
