@@ -42,7 +42,7 @@ const UserProfileLink: React.FC = () => {
 			HTMLSelectElement
 		setFormData(prevData => ({
 			...prevData,
-			[name]: type === 'checkbox' ? checked : value,
+			[name]: type === 'select-one' ? checked : value,
 		}))
 	}
 

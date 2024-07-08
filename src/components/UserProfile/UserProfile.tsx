@@ -1,6 +1,7 @@
 import QRCode from 'qrcode.react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom' // Импорт хука useParams
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
 import { fetchProfile } from '../../features/profileSlice/profileSlice'
@@ -12,12 +13,10 @@ const UserProfile: React.FC = () => {
 	)
 
 	const { user } = useSelector((state: RootState) => state.auth)
+	const { id } = useParams<{ id: string }>()
 
 	useEffect(() => {
 		dispatch(fetchProfile())
-	}, [dispatch])
-
-	useEffect(() => {
 		dispatch(checkAuth())
 	}, [dispatch])
 
@@ -31,7 +30,7 @@ const UserProfile: React.FC = () => {
 		)
 	}
 
-	const profileUrl = `${window.location.origin}/profile/${profile?._id}`
+	const profileUrl = profile ? `${window.location.origin}/profile/${id}` : ''
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
@@ -39,7 +38,7 @@ const UserProfile: React.FC = () => {
 				{user?.role === 'admin' && (
 					<h3 className='text-3xl font-bold mb-6'>
 						Профиль пользователя{' '}
-						<span className='text-orange-400'>{user?.role}</span>
+						<span className='text-orange-400'>{user.role}</span>
 					</h3>
 				)}
 				{profile && (
@@ -71,7 +70,7 @@ const UserProfile: React.FC = () => {
 								: ''}
 						</p>
 						<div className='flex justify-center mt-6'>
-							<QRCode value={profileUrl} />
+							{profileUrl && <QRCode value={profileUrl} />}
 						</div>
 					</div>
 				)}
