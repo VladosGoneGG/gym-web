@@ -11,12 +11,12 @@ import {
 } from '../../features/profileSlice/profileSlice'
 
 const UserProfile: React.FC = () => {
+	const { id } = useParams<{ id: string }>()
 	const dispatch = useDispatch<AppDispatch>()
 	const { profile, status, error, profileUrl } = useSelector(
 		(state: RootState) => state.profile
 	)
 	const { user } = useSelector((state: RootState) => state.auth)
-	const { id } = useParams<{ id: string }>()
 
 	useEffect(() => {
 		dispatch(fetchProfile())
