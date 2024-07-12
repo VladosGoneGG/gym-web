@@ -15,7 +15,7 @@ const UserProfile: React.FC = () => {
 		(state: RootState) => state.profile
 	)
 	const { user } = useSelector((state: RootState) => state.auth)
-	const id = user?._id
+	const id = profile?._id
 
 	useEffect(() => {
 		dispatch(fetchProfile())
