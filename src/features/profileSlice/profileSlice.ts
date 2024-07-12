@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ProfileState } from '../../models/response/IProfile'
 import { UserProfile } from '../../models/response/IUserProfile'
 import AuthService from '../../services/AuthService'
@@ -43,7 +43,7 @@ const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		setProfileUrl: (state, action) => {
+		setProfileUrl: (state, action: PayloadAction<string>) => {
 			state.profileUrl = action.payload
 		},
 	},
