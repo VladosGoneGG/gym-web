@@ -1,7 +1,6 @@
 import QRCode from 'qrcode.react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
 import {
@@ -11,12 +10,12 @@ import {
 } from '../../features/profileSlice/profileSlice'
 
 const UserProfile: React.FC = () => {
-	const { id } = useParams<{ id: string }>()
 	const dispatch = useDispatch<AppDispatch>()
 	const { profile, status, error, profileUrl } = useSelector(
 		(state: RootState) => state.profile
 	)
 	const { user } = useSelector((state: RootState) => state.auth)
+	const id = user?._id
 
 	useEffect(() => {
 		dispatch(fetchProfile())
