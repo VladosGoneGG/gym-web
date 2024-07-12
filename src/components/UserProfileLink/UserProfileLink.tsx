@@ -20,6 +20,7 @@ const UserProfileLink: React.FC = () => {
 	const { user, loading, error } = useSelector(
 		(state: RootState) => state.userProfile
 	)
+	const { profile } = useSelector((state: RootState) => state.profile)
 	const [formData, setFormData] = useState<Partial<IUser>>({})
 
 	useEffect(() => {
@@ -79,25 +80,25 @@ const UserProfileLink: React.FC = () => {
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-4 text-[16px] md:text-[24px]'>
-			{user?.role === 'admin' ? (
+			{profile?.role === 'admin' ? (
 				<div className='flex justify-start sm:justify-center'>
 					<div className='flex flex-col w-auto sm:w-[50%] text-white justify-start sm:justify-center p-6'>
 						<h3 className='text-orange-400 mb-4'>
-							{user.firstName} {user.lastName}
+							{user?.firstName} {user?.lastName}
 						</h3>
 						<p className='text-orange-400'>
-							Email: <span className='text-white'>{user.email}</span>
+							Email: <span className='text-white'>{user?.email}</span>
 						</p>
 						<p className='text-orange-400'>
 							Статус подписки:{' '}
-							<span className='text-white'>{user.subscriptionStatus}</span>
+							<span className='text-white'>{user?.subscriptionStatus}</span>
 						</p>
 						<p className='text-orange-400'>
 							Окончание подписки:
 							<span className='text-white'>
 								{' '}
-								{user.subscriptionExpiry
-									? new Date(user.subscriptionExpiry).toLocaleDateString()
+								{user?.subscriptionExpiry
+									? new Date(user?.subscriptionExpiry).toLocaleDateString()
 									: ''}
 							</span>
 						</p>
