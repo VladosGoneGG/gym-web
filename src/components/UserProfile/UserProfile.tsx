@@ -1,6 +1,7 @@
 import QRCode from 'qrcode.react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
 import { fetchProfile } from '../../features/profileSlice/profileSlice'
@@ -26,6 +27,9 @@ const UserProfile: React.FC = () => {
 			<div className='flex-1 text-center text-red-500'>Ошибка: {error}</div>
 		)
 	}
+
+	console.log(profile?._id)
+	console.log(profile.id)
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
