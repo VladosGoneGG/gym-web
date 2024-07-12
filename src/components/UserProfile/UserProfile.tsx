@@ -67,7 +67,7 @@ const UserProfile: React.FC = () => {
 						<div className='flex justify-center mt-6'>
 							{
 								<QRCode
-									value={`${window.location.origin}/profile/${user?._id}`}
+									value={`${window.location.origin}/profile/${profile._id}`}
 								/>
 							}
 						</div>
