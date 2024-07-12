@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
 import { fetchProfile } from '../../features/profileSlice/profileSlice'
+import { fetchUserProfile } from '../../features/userProfileSlice/userProfileSlice'
 
 const UserProfile: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
@@ -19,6 +20,12 @@ const UserProfile: React.FC = () => {
 		dispatch(fetchProfile())
 		dispatch(checkAuth())
 	}, [dispatch])
+
+	useEffect(() => {
+		if (id) {
+			dispatch(fetchUserProfile(id))
+		}
+	}, [id, dispatch])
 
 	if (status === 'loading') {
 		return <div className='flex-1 text-center text-orange-400'>Загрузка...</div>
