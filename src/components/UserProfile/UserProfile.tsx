@@ -1,40 +1,21 @@
 import QRCode from 'qrcode.react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
-import {
-	fetchProfile,
-	fetchUser,
-	setProfileUrl,
-} from '../../features/profileSlice/profileSlice'
+import { fetchProfile } from '../../features/profileSlice/profileSlice'
 
 const UserProfile: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
-	const { profile, status, error, profileUrl } = useSelector(
+	const { profile, status, error } = useSelector(
 		(state: RootState) => state.profile
 	)
 	const { user } = useSelector((state: RootState) => state.auth)
-	const { id } = useParams<{ id: string }>()
 
 	useEffect(() => {
 		dispatch(fetchProfile())
 		dispatch(checkAuth())
 	}, [dispatch])
-
-	useEffect(() => {
-		if (id) {
-			dispatch(fetchUser(id))
-		}
-	}, [id, dispatch])
-
-	useEffect(() => {
-		if (profile && id) {
-			const url = `${window.location.origin}/profile/${id}`
-			dispatch(setProfileUrl(url))
-		}
-	}, [profile, id, dispatch])
 
 	if (status === 'loading') {
 		return <div className='flex-1 text-center text-orange-400'>Загрузка...</div>
@@ -45,8 +26,6 @@ const UserProfile: React.FC = () => {
 			<div className='flex-1 text-center text-red-500'>Ошибка: {error}</div>
 		)
 	}
-
-	console.log(profileUrl)
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
@@ -86,7 +65,11 @@ const UserProfile: React.FC = () => {
 								: ''}
 						</p>
 						<div className='flex justify-center mt-6'>
-							{profileUrl && <QRCode value={profileUrl} />}
+							{
+								<QRCode
+									value={`${window.location.origin}/profile/${user?._id}`}
+								/>
+							}
 						</div>
 					</div>
 				)}
