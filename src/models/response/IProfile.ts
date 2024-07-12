@@ -1,6 +1,6 @@
 export interface ProfileState {
 	profile: {
-		_id: string
+		id: string
 		email: string
 		firstName: string
 		lastName: string

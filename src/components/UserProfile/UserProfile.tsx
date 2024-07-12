@@ -28,8 +28,6 @@ const UserProfile: React.FC = () => {
 		)
 	}
 
-	console.log(profile?._id)
-
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
 			<div className='flex flex-col gap-10 items-center'>
@@ -70,7 +68,7 @@ const UserProfile: React.FC = () => {
 						<div className='flex justify-center mt-6'>
 							{
 								<QRCode
-									value={`${window.location.origin}/profile/${profile._id}`}
+									value={`${window.location.origin}/profile/${profile.id}`}
 								/>
 							}
 						</div>

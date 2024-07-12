@@ -1,6 +1,6 @@
 export interface IUser {
-	// id: any
 	email: string
+	id: string
 	_id: string
 	isActivated: boolean
 	firstName: string
