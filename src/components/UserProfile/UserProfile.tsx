@@ -1,5 +1,5 @@
 import QRCode from 'qrcode.react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
@@ -15,15 +15,10 @@ const UserProfile: React.FC = () => {
 	const { user } = useSelector((state: RootState) => state.auth)
 	const { id } = useParams<{ id: string }>()
 
-	const [profileId, setProfileId] = useState<string | null>(null)
-
 	useEffect(() => {
-		if (id) {
-			setProfileId(id)
-			dispatch(fetchProfile())
-			dispatch(checkAuth())
-		}
-	}, [dispatch, id])
+		dispatch(fetchProfile())
+		dispatch(checkAuth())
+	}, [dispatch])
 
 	if (status === 'loading') {
 		return <div className='flex-1 text-center text-orange-400'>Загрузка...</div>
@@ -35,8 +30,7 @@ const UserProfile: React.FC = () => {
 		)
 	}
 
-	const profileUrl =
-		profile && profileId ? `${window.location.origin}/profile/${profileId}` : ''
+	const profileUrl = profile ? `${window.location.origin}/profile/${id}` : ''
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
