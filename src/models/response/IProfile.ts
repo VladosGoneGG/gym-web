@@ -10,6 +10,7 @@ export interface ProfileState {
 	} | null
 	status: 'idle' | 'loading' | 'succeeded' | 'failed'
 	error: string | null
+	profileUrl: string | null
 }
 
 export interface IProfile {

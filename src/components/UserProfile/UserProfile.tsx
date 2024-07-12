@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
-import { fetchProfile } from '../../features/profileSlice/profileSlice'
-import { fetchUserProfile } from '../../features/userProfileSlice/userProfileSlice'
+import {
+	fetchProfile,
+	fetchUser,
+	setProfileUrl,
+} from '../../features/profileSlice/profileSlice'
 
 const UserProfile: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
-	const { profile, status, error } = useSelector(
+	const { profile, status, error, profileUrl } = useSelector(
 		(state: RootState) => state.profile
 	)
-
 	const { user } = useSelector((state: RootState) => state.auth)
 	const { id } = useParams<{ id: string }>()
 
@@ -23,9 +25,16 @@ const UserProfile: React.FC = () => {
 
 	useEffect(() => {
 		if (id) {
-			dispatch(fetchUserProfile(id))
+			dispatch(fetchUser(id))
 		}
 	}, [id, dispatch])
+
+	useEffect(() => {
+		if (profile && id) {
+			const url = `${window.location.origin}/profile/${id}`
+			dispatch(setProfileUrl(url))
+		}
+	}, [profile, id, dispatch])
 
 	if (status === 'loading') {
 		return <div className='flex-1 text-center text-orange-400'>Загрузка...</div>
@@ -36,8 +45,6 @@ const UserProfile: React.FC = () => {
 			<div className='flex-1 text-center text-red-500'>Ошибка: {error}</div>
 		)
 	}
-
-	const profileUrl = profile ? `${window.location.origin}/profile/${id}` : ''
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>

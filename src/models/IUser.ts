@@ -7,5 +7,5 @@ export interface IUser {
 	lastName: string
 	subscriptionStatus: string
 	subscriptionExpiry: Date
-	role: string
+	role: 'user' | 'admin'
 }
