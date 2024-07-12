@@ -29,7 +29,6 @@ const UserProfile: React.FC = () => {
 	}
 
 	console.log(profile?._id)
-	console.log(profile.id)
 
 	return (
 		<div className='flex-1 bg-neutral-950 p-6 text-white'>
