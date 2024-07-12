@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../app/store'
 import { checkAuth } from '../../features/authSlice/authSlice'
 import { fetchProfile } from '../../features/profileSlice/profileSlice'
+import { fetchUserProfile } from '../../features/userProfileSlice/userProfileSlice'
 
 const UserProfile: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
@@ -14,6 +15,12 @@ const UserProfile: React.FC = () => {
 
 	const { user } = useSelector((state: RootState) => state.auth)
 	const { id } = useParams<{ id: string }>()
+
+	useEffect(() => {
+		if (id) {
+			dispatch(fetchUserProfile(id))
+		}
+	}, [id, dispatch])
 
 	useEffect(() => {
 		dispatch(fetchProfile())
